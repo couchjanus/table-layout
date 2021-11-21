@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,93 +11,88 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tableRow"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView">
 
-        android:text="@string/change_images"
-        android:id="@+id/textView"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            android:text="@string/change_images"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:src="@drawable/ic_account_circle"
-        android:id="@+id/imageView" />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_cercle"
-        android:checked="true"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignEnd="@+id/imageView"
-        android:onClick="checkImage"
-        android:id="@+id/checkBox" />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/adjust_black"
-        android:checked="false"
-        android:layout_below="@+id/chackBox"
-        android:layout_alignRight="@+id/imageView"
-        android:onClick="checkImage"
-        android:id="@+id/checkBox2" />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/alrm_on_black"
-        android:checked="false"
-        android:layout_below="@+id/chackBox2"
-        android:layout_alignRight="@+id/imageView"
-        android:onClick="checkImage"
-        android:id="@+id/checkBox3" />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/assinstant_black"
-        android:checked="false"
-        android:layout_below="@+id/chackBox3"
-        android:layout_alignRight="@+id/imageView"
-        android:onClick="checkImage"
-        android:id="@+id/checkBox4" />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Brihtness"
-        android:checked="false"
-        android:layout_below="@+id/chackBox4"
-        android:layout_alignRight="@+id/imageView"
-        android:onClick="checkImage"
-        android:id="@+id/checkBox5" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="@string/change_image"
-        android:textColor="@color/purple_500"
-        android:layout_column="25"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/checkBox5"
-        android:layout_toEndOf="@+id/imageView" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/current_image"
+            android:gravity="end"
+            android:src="@drawable/ic_account_circle" />
     </TableRow>
 
+    <TableRow>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_cercle"
+            android:checked="true"
+            android:onClick="checkImage"
+            android:id="@+id/checkBox" />
+    </TableRow>
 
+    <TableRow>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/adjust_black"
+            android:checked="false"
+            android:onClick="checkImage"
+            android:id="@+id/checkBox2" />
+    </TableRow>
+    <TableRow>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alrm_on_black"
+            android:checked="false"
+            android:onClick="checkImage"
+            android:id="@+id/checkBox3" />
+    </TableRow>
+    <TableRow>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/assinstant_black"
+            android:checked="false"
+            android:onClick="checkImage"
+            android:id="@+id/checkBox4" />
+    </TableRow>
+    <TableRow>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/brihtness"
+            android:checked="false"
+            android:onClick="checkImage"
+            android:id="@+id/checkBox5" />
+    </TableRow>
 
+    <TableRow>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/change_image"
+            android:textColor="@color/white"
+
+            android:layout_gravity="center_horizontal" />
+    </TableRow>
 </TableLayout>

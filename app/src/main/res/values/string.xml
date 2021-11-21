@@ -2,8 +2,8 @@
 <resources>
     <string name="change_images">Change Images</string>
     <string name="change_image">Change Image</string>
-    <string name="assinstant_black">Assinstant black</string>
-    <string name="alrm_on_black">Alrm on black</string>
-    <string name="adjust_black">Adjust black</string>
-    <string name="account_cercle">Account cercle</string>
+    <string name="assinstant_black">Assins</string>
+    <string name="alrm_on_black">Alrm</string>
+    <string name="adjust_black">Adjust</string>
+    <string name="account_cercle">Account</string>
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Table</string>
+    <string name="brihtness">Brihtness</string>
+    <string name="current_image">Current image</string>
 </resources>

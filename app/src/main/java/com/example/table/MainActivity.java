@@ -2,6 +2,7 @@ package com.example.table;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,35 +12,34 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList images = new ArrayList();
+    ArrayList<Integer> images = new ArrayList<>();
     Button myButton1;
     ImageView imageView;
     CheckBox image1, image2, image3, image4, image5;
     int count = 0;
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.imageView);
-        CheckBox image1 = (CheckBox) findViewById(R.id.checkBox);
-        CheckBox image2 = (CheckBox) findViewById(R.id.checkBox2);
-        CheckBox image3 = (CheckBox) findViewById(R.id.checkBox3);
-        CheckBox image4 = (CheckBox) findViewById(R.id.checkBox4);
-        CheckBox image5 = (CheckBox) findViewById(R.id.checkBox5);
+        image1 = (CheckBox) findViewById(R.id.checkBox);
+        image2 = (CheckBox) findViewById(R.id.checkBox2);
+        image3 = (CheckBox) findViewById(R.id.checkBox3);
+        image4 = (CheckBox) findViewById(R.id.checkBox4);
+        image5 = (CheckBox) findViewById(R.id.checkBox5);
 
         image1.setChecked(true);
         images.add(R.drawable.ic_account_red);
-        imageView.setImageDrawable(getResources().getDrawable((int)images.get(0)));
+        imageView.setImageDrawable(getResources().getDrawable(images.get(0)));
         myButton1 = (Button) findViewById(R.id.button);
-        myButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count = (count+1)%5;
-                imageView.setImageDrawable(getResources().getDrawable((int)images.get(count)));
-            }
+        myButton1.setOnClickListener(v -> {
+            count = (count+1)%5;
+            imageView.setImageDrawable(getResources().getDrawable(images.get(count)));
         });
     }
+    @SuppressLint("NonConstantResourceId")
     public void checkImage(View v){
         boolean ch = ((CheckBox) v).isChecked();
         switch (v.getId()){
